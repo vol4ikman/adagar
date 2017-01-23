@@ -16,7 +16,7 @@
                         <div class="screen_block">
                             <?php if($section['icon_class']): ?>
                                 <div class="screen_block_outer">
-                                    <div class="outer_icon">
+                                    <div class="outer_icon">                                        
                                         <i class="fa <?php echo $section['icon_class']; ?>" aria-hidden="true"></i>
                                     </div>
                                 </div>

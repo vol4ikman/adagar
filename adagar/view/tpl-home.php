@@ -14,9 +14,11 @@
                                 <div class="side_inner">
                                     <h1><span>ADAGAR</span></h1>
                                     <h2><span class="white">Creative Web</span> <span class="yellow">Solutions</span></h2>
-                                    <p>
-                                        לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית קונסקטורר אדיפיסינג אלית. סת אלמנקום ניסי נון ניבאה. דס איאקוליס וולופטה דיאם. וסטיבולום אט דולור, קראס אגת לקטוס וואל אאוגו וסטיבולום סוליסי טידום בעליק. קונדימנטום קורוס בליקרה, נונסטי קלובר בריקנה סטום, לפריקך תצטריק לרטי.
-                                    </p>
+                                    <div class="home_creative_description">
+                                        <?php while( have_posts() ): the_post(); ?>
+                                            <?php the_content(); ?>
+                                        <?php endwhile; ?>
+                                    </div>
                                 </div>
                             </div>
                             <div class="right_side">

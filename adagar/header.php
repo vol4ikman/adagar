@@ -1,3 +1,8 @@
+<?php
+	$mailto   = get_field('email_address','option');
+	$phone    = get_field('phone_number','option');
+	$show_phone_number = get_field('show_phone_number','option');
+?>
 <!doctype html>
 <html <?php language_attributes(); ?> class="no-js">
 <head>
@@ -23,25 +28,20 @@
 				<div class="wrapper clear">
 					<div class="header_top_inner clear">
 						<div class="header_top_phone">
-							<a href="mailto:adagarweb@gmail.com" target="_blank" aria-label="contact email">
-								<i class="fa fa-envelope" aria-hidden="true"></i>
-							</a>
-							<a href="tel:0502598678" class="phone" aria-label="0502598678">
-								<i class="fa fa-phone" aria-hidden="true"></i> 050-2598678
-							</a>
+							<?php if( $mailto ): ?>
+								<a href="mailto:<?php echo $mailto; ?>" target="_blank" aria-label="contact email">
+									<i class="fa fa-envelope" aria-hidden="true"></i>
+								</a>
+							<?php endif; ?>
+							<?php if( $phone ) : ?>
+								<a href="tel:<?php echo $phone; ?>" class="phone" aria-label="<?php echo $phone; ?>">
+									<i class="fa fa-phone" aria-hidden="true"></i> <?php if($show_phone_number): ?><?php echo $phone; ?><?php endif; ?>
+								</a>
+							<?php endif; ?>
 						</div>
 
 						<div class="header_top_socials">
-							<a href="#" aria-label="Facebook">
-								<i class="fa fa-facebook-square" aria-hidden="true"></i></i>
-							</a>
-							<a href="#" aria-label="Linkedin">
-								<i class="fa fa-linkedin-square" aria-hidden="true"></i>
-							</a>
-							<a href="#" aria-label="Google plus">
-								<i class="fa fa-google-plus-square" aria-hidden="true"></i>
-							</a>
-
+							<?php get_template_part("inc/social"); ?>
 							<?php get_template_part("inc/header/accessibility"); ?>
 						</div>
 					</div>

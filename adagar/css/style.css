@@ -495,12 +495,16 @@ body.contrast_on a,
 body.contrast_on .header .nav a {
     color: #e8bf46;
 }
-body.contrast_on .form_title {
+body.contrast_on .form_title,
+body.contrast_on .screen_block_inner {
     color: #FFF;
 }
 body.contrast_on .adagar_logo img,
 body.contrast_on .logo img {
     background-color: #FFF;
+}
+body.contrast_on .screen_block_inner {
+    border:1px solid #FFF;
 }
 /**************************************
     Contrast END
@@ -820,8 +824,6 @@ h3.green {
     font-size: 3rem;
     margin-bottom: 2rem;
 }
-
-
 .page-template-tpl-home {
     background: #eeeeee;
 }
@@ -853,7 +855,7 @@ h3.green {
 .side_inner h1 {
     font-size: 3rem;
     line-height: 1;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
     font-weight: 400;
 }
 .side_inner h1 span {

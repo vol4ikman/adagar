@@ -4,7 +4,7 @@ get_template_part("ajax");
 function adagar_theme_styles(){
     wp_register_style('font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', array(), NULL, 'all'); wp_enqueue_style('font-awesome');
     wp_register_style('normalize', THEME . '/css/normalize.css', array(), NULL, 'all'); wp_enqueue_style('normalize');
-    wp_register_style('adagar-style', THEME . '/css/style.css', array(), NULL, 'all'); wp_enqueue_style('adagar-style');
+    wp_register_style('adagar-style', THEME . '/css/style.min.css', array(), NULL, 'all'); wp_enqueue_style('adagar-style');
     wp_register_style('responsive', THEME . '/css/responsive.css', array(), NULL, 'all'); wp_enqueue_style('responsive');
 }
 add_action('wp_enqueue_scripts', 'adagar_theme_styles');
@@ -110,3 +110,31 @@ function qstheme_textdomain(){
 }
 
 add_filter('show_admin_bar', '__return_false');
+
+if( function_exists('acf_add_options_page') ) {
+
+	acf_add_options_page(array(
+		'page_title'     => 'General Settings',
+		'menu_title'     => 'General Settings',
+		'menu_slug'      => 'theme-general-settings',
+		'capability'	 => 'edit_posts',
+		'redirect'		 => false
+	));
+
+}
+
+/***************************
+    WAH add front widgets
+****************************/
+add_filter('wah_enabled_widgets', 'custom_front_widgets', 10, 1);
+function custom_front_widgets($widgets){
+
+    $widgets["widget-100"]["active"] = 1;
+    $widgets["widget-100"]["html"] = '<div class="a_module">
+        <div class="a_module_exe">
+            <a rel="nofollow" href="#test" id="wah_lights_off" class="contrast_trigger action_button wahout wah-lights-off">Custom link</a>
+        </div>
+    </div>';
+
+    return $widgets;
+}
